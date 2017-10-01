@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import LS from '../../local_storage';
 
 import AddTransaction from './AddTransaction';
+import TransactionList from './TransactionsList';
 
 class Transactions extends Component {
     
@@ -40,10 +41,27 @@ class Transactions extends Component {
     
     render() {
         console.log('Transaction render');
-        const { categories } = this.state;
+        const { categories, transactions } = this.state;
         return (
             <div>
-                <AddTransaction selectCategories={categories} getTransaction={this.addTransaction}/>
+                {(categories && categories.length)
+                    ?
+                    <AddTransaction
+                        selectCategories={categories}
+                        getTransaction={this.addTransaction}
+                    />
+                    :
+                    null
+                }
+                {(transactions && transactions.length)
+                    ?
+                    <TransactionList
+                        transactions={transactions}
+                        categories={categories}
+                    />
+                    :
+                    null
+                }
             </div>
         );
     }

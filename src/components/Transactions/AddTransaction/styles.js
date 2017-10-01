@@ -7,7 +7,6 @@ export default {
     `,
     inputsWrapper: css`
         display: flex;
-        justify-content: center;
         justify-content: space-between;
     `,
     footerContent: css`

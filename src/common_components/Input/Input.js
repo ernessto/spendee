@@ -11,14 +11,14 @@ const InputView = styled.input.attrs({
     'data-not-close-select': true,
     placeholder: props => props.placeholder || '',
     type: props => props.type || 'text'
-})`${ styles.input }`;
+})`${ styles.inputView }`;
 
 const LabelText = styled.span`${ styles.labelText }`;
 const Label = styled.label`${ styles.label }`;
 
 const Input = props => {
     const onBlurHandler = e => {
-        if (props.onBlurFunc) {
+        if (props.onBlurFunc && props.dateValidation) {
             const { value, name } = e.target;
             let tmpArr = undefined;
             let isValid = true;
@@ -92,7 +92,8 @@ Input.propTypes = {
     weight: PropTypes.string,
     borderActiveColor: PropTypes.bool,
     amountState: PropTypes.string,
-    resetInput: PropTypes.bool
+    resetInput: PropTypes.bool,
+    dateValidation: PropTypes.bool
 };
 
 export default Input;

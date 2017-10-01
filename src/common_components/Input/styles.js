@@ -5,7 +5,7 @@ export default {
         display: flex;
         flex-direction: column;
     `,
-    input: css`
+    inputView: css`
         padding: 0 8px;
         background-color: transparent;
         outline: none;

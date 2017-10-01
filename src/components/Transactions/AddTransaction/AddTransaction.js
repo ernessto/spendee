@@ -72,7 +72,6 @@ class AddTransaction extends PureComponent {
     
     setCategoryItem = value => {
         const { selectCategories } = this.props;
-        console.log('set item');
         if (value && value.length && typeof value === 'string') {
             const currentItem = selectCategories.filter(item => item.value === value);
             if (currentItem) {
@@ -237,6 +236,7 @@ class AddTransaction extends PureComponent {
                                     label={'Date'}
                                     name={'date'}
                                     textColor={'#324c5b'}
+                                    dateValidation
                                     onChangeFunc={this.inputOnChange}
                                     onBlurFunc={this.inputOnChange}
                                 />
