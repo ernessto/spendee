@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import { injectGlobal } from 'styled-components';
 import App from './App';
 
-import dafault_categories from './data/default_categories';
+import default_categories from './data/default_categories';
 import LS from './local_storage';
 
 if (!LS.checkData('categories')) {
-    LS.setData('categories', dafault_categories);
+    LS.setData('categories', default_categories);
 }
 
 injectGlobal`
