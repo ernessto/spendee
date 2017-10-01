@@ -13,8 +13,7 @@ export default () => (
             <NavLink to={'/transactions'}>Transactions</NavLink>
         </LinkContainer>
         <LinkContainer>
-            <NavLink to={'/overview'}>Overview</NavLink>
+            <NavLink to={'/settings/categories'}>Wallet Settings</NavLink>
         </LinkContainer>
     </NavMenuContainer>
 );
-// transactions

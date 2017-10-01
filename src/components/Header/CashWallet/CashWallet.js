@@ -11,7 +11,7 @@ const CashWalletHeader = styled.h2` ${styles.header} `;
 export default () => (
     <CashWalletContainer>
         <CashWalletHeader>Cash Wallet</CashWalletHeader>
-        <Arrow margin={'auto 5px'}/>
+        <Arrow margin={'auto 0 auto 15px'} arrowState={'down'} size={'6px'}/>
     </CashWalletContainer>
 );
 

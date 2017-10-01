@@ -5,6 +5,7 @@ export default {
         display: flex;
         padding: 15px 20px 15px 0;
         justify-content: flex-end;
+        align-items: center;
         width: 25%;
     `,
     userAvatar: css`

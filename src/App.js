@@ -1,27 +1,27 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
+import paths from './data/routes_paths';
+
 import Header from './components/Header';
-import Overview from './components/Overview';
 import Transactions from './components/Transactions';
+import Settings from './components/Settings';
+import NotFound from './components/NotFound';
 
 
 export default () => (
     <Router>
         <div>
-            <Header/>
+            <Route component={Header}/>
             <Switch>
-                <Route exact path={'/transactions'}>
-                    <Transactions/>
-                </Route>
-                <Route exact path={'/overview'}>
-                    <Overview/>
-                </Route>
-                <Redirect from={'/'} to={'/transactions'}/>
+                <Route exact path={paths.Transactions} component={Transactions}/>
+                <Redirect exact from={'/'} to={paths.Transactions}/>
+                
+                <Route path={paths.Settings} component={Settings} />
+                <Redirect exact from={'/settings'} to={paths.Settings}/>
+                
+                <Route component={NotFound}/>
             </Switch>
         </div>
     </Router>
 );
-
-
-
