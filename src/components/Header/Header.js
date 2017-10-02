@@ -18,7 +18,6 @@ export default props => {
             isCurrent = true;
         }
     }
-    console.log('Header rendered!!!');
     return (
         <Header>
             {isCurrent

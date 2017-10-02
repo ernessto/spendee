@@ -167,7 +167,7 @@ class AddTransaction extends PureComponent {
             transactionData: Object.assign({}, this.state.transactionData, {
                 categoryImage: '',
                 categoryName: '',
-                categoryType: '',
+                categoryType: 'expenses',
                 amount: '',
                 hashTag: ''
             }),
@@ -196,6 +196,17 @@ class AddTransaction extends PureComponent {
         } = this.state.transactionData;
         const activeOption = { categoryImage, categoryName };
         const isFilledTransactionData = checkObjectOnFilled(this.state.transactionData, ['hashTag']);
+        const currentAmountValue =
+            categoryType === 'expenses'
+                ?
+                valueToNegativeAmount(amount)
+                :
+                categoryType === 'incomes'
+                    ?
+                    valueToPositiveAmount(amount)
+                    :
+                    amount
+        ;
         return (
             <Wrapper>
                 {!isOpenModal
@@ -248,7 +259,7 @@ class AddTransaction extends PureComponent {
                                     onChangeFunc={this.inputOnChange}
                                 />
                                 <Input
-                                    value={amount}
+                                    value={currentAmountValue}
                                     placeholder={(categoryType === 'expenses') ? '-0.00' : '0.00'}
                                     label={'Price'}
                                     name={'amount'}

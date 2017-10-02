@@ -30,10 +30,9 @@ const Input = props => {
             }
             if (tmpArr) {
                 const [ date, month, year ] = tmpArr;
-                console.log(date, month, year);
                 if (Number(date) > 31 || Number(date) < 1) isValid = false;
                 if (Number(month) > 12 || Number(month) < 1) isValid = false;
-                if ((year.length === 4 && Number(year) > new Date().getFullYear()) || Number(year) < 1970 ) isValid = false;
+                if ((year.length !== 4 && Number(year)  > new Date().getFullYear()) || Number(year) < 1970 ) isValid = false;
             }
             if (isValid) return;
             else {

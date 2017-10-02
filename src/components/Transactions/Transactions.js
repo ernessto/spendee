@@ -40,7 +40,6 @@ class Transactions extends Component {
     };
     
     render() {
-        console.log('Transaction render');
         const { categories, transactions } = this.state;
         return (
             <div>

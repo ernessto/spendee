@@ -22,7 +22,6 @@ class TransactionList extends PureComponent {
     }
     
     render() {
-        console.log('TransactionList rendered');
         const { transactions } = this.props;
         
         const transactionsItems = transactions.map((item, idx) => {
