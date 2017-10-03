@@ -7,14 +7,15 @@ const ModalWrapper = styled.div`${ styles.wrapper }`;
 
 const Modal = props => {
     return (
-        <ModalWrapper onClick={props.onClickFunc}>
+        <ModalWrapper {...props} onClick={props.onClickFunc}>
             {props.children}
         </ModalWrapper>
     );
 };
 
 Modal.propTypes = {
-    onClickFunc: PropTypes.func
+    onClickFunc: PropTypes.func,
+    rounded: PropTypes.bool
 };
 
 export default Modal;

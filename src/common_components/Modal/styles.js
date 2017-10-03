@@ -7,8 +7,6 @@ export default {
         z-index: 150;
         padding: 15px;
         background-color: #fff;
-        border-radius: 8px;
-        margin-top: 20px;
-        
+        ${props => props.rounded && 'border-radius: 8px;'}
     `
 }

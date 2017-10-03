@@ -225,7 +225,7 @@ class AddTransaction extends PureComponent {
                             text={'Close'}
                             close
                         />
-                        <Modal onClickFunc={this.closeSelect}>
+                        <Modal onClickFunc={this.closeSelect} style={{marginTop: '20px'}} rounded>
                             <InputsWrapper>
                                 <Select
                                     options={selectCategories}
