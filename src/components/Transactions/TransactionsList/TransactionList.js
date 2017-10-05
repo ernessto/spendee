@@ -28,13 +28,14 @@ class TransactionList extends PureComponent {
         const transactionsItems = transactions.map((item, idx) => {
             const transactionItem = item;
             const currentCategory = categories.filter(item => item.value === transactionItem.categoryName);
+            const { url, type } = currentCategory[0];
             return (
                 <TransactionItem
                     key={idx}
                     transactionID={idx}
                     transactionName={transactionItem.categoryName}
-                    transactionImage={currentCategory[0].url}
-                    transactionType={currentCategory[0].type}
+                    transactionImage={url}
+                    transactionType={type}
                     date={transactionItem.date}
                     hashTag={transactionItem.hashTag}
                     amount={transactionItem.amount}

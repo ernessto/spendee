@@ -4,6 +4,7 @@ export default {
     wrapper: css`
         margin: 0 auto;
         width: 1140px;
+        position: relative;
     `,
     inputsWrapper: css`
         display: flex;
