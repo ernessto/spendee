@@ -30,7 +30,6 @@ class TransactionItem extends PureComponent {
         const {
             transactionName,
             transactionImage,
-            transactionType,
             date,
             hashTag,
             amount

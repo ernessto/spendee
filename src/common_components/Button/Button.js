@@ -6,7 +6,8 @@ import styles from './styles';
 import Indicator from '../Indicator';
 
 const ControlBtn = styled.button.attrs({
-    type: props => props.type || 'button'
+    type: props => props.type || 'button',
+    disabled: props => props.btnDisabled && 1
 })`${ styles.controlButton }`;
 const ButtonText = styled.span`${ styles.buttonText }`;
 

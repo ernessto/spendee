@@ -6,6 +6,7 @@ export default {
         position: relative;
         z-index: 150;
         border: 0;
+        cursor: pointer;
         font-size: 14px;
         font-weight: 600;
         border-radius: 4px;
@@ -14,11 +15,10 @@ export default {
         ${props => props.primary && 'box-shadow: 0 4px 4px 0 rgba(17,195,139,.2);'}
         ${props => props.close && 'background-color: #324c5b;'}
         ${props => props.btnDisabled && 'background-color: #bbcdd8;'}
-        ${props => props.btnDisabled && 'pointer-events: none;'}
+        ${props => props.btnDisabled && 'cursor: not-allowed;'}
         color: #fff;
         
         :hover {
-            cursor: pointer;
             ${props => props.primary && 'box-shadow: 0 5px 6px 0 rgba(17,195,139,.32);'}
             ${props => props.close && 'background-color: #45687d;'}
         }
