@@ -16,6 +16,7 @@ export default {
         
         span {
             line-height: 1;
+            ${props => (props.content && props.content.type === 'text') && 'height: 16px;'}
             ${props => props.close && 'margin: auto 0;'};
         }
         img {
