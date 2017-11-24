@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux'
 import styled from 'styled-components';
 import styles from './styles';
 
@@ -160,8 +161,11 @@ class AddTransaction extends PureComponent {
     
     setTransactionData = () => {
         const { amount, hashTag, categoryName, date } = this.state.transactionData;
-        const data = { amount, hashTag, categoryName, date };
-        this.props.getTransaction(data);
+        const data = { amount, hashTag, categoryName, createdDate: date };
+        // console.log(date);
+        // this.props.getTransaction(data);
+        // console.log(this.props);
+        this.props.dispatch({ type: 'POST_TRANSACTION', payload: data });
         this.setState(() => ({
             isOpenModal: false,
             transactionData: Object.assign({}, this.state.transactionData, {
@@ -287,4 +291,10 @@ class AddTransaction extends PureComponent {
     }
 }
 
-export default AddTransaction;
+const mapStateToProps = store => {
+    return {
+        store
+    }
+}
+
+export default connect(mapStateToProps)(AddTransaction);

@@ -52,15 +52,10 @@ class Transactions extends Component {
                     :
                     null
                 }
-                {(transactions && transactions.length)
-                    ?
-                    <TransactionList
-                        transactions={transactions}
-                        categories={categories}
-                    />
-                    :
-                    null
-                }
+                <TransactionList
+                    transactions={transactions}
+                    categories={categories}
+                />
             </div>
         );
     }

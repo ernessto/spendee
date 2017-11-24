@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux'
 import styled from 'styled-components';
 import styles from './styles';
 
@@ -23,35 +24,43 @@ class TransactionList extends PureComponent {
     }
     
     render() {
-        const { transactions, categories } = this.props;
-        
-        const transactionsItems = transactions.map((item, idx) => {
-            const transactionItem = item;
-            const currentCategory = categories.filter(item => item.value === transactionItem.categoryName);
-            const { url, type } = currentCategory[0];
-            return (
-                <TransactionItem
-                    key={idx}
-                    transactionID={idx}
-                    transactionName={transactionItem.categoryName}
-                    transactionImage={url}
-                    transactionType={type}
-                    date={transactionItem.date}
-                    hashTag={transactionItem.hashTag}
-                    amount={transactionItem.amount}
-                />
-            )
-        });
+        const { transactions, categories } = this.props.store;
+        console.log(transactions);
+
+        let transactionsItems = null;
+        if (transactions.length > 0) {
+            transactionsItems = transactions.map((item, idx) => {
+                const transactionItem = item;
+                const currentCategory = categories.filter(item => item.value === transactionItem.categoryName);
+                const {url, type} = currentCategory[0];
+                return (
+                    <TransactionItem
+                        key={idx}
+                        transactionID={idx}
+                        transactionName={transactionItem.categoryName}
+                        transactionImage={url}
+                        transactionType={type}
+                        date={transactionItem.date}
+                        hashTag={transactionItem.hashTag}
+                        amount={transactionItem.amount}
+                    />
+                )
+            });
+        }
         
         return (
-            <TransactionListContainer>
-                <List>
-                    {transactionsItems}
-                </List>
+            <TransactionListContainer style={!transactionsItems && {padding: '0'}}>
+                {transactionsItems ? <List>{transactionsItems}</List> : null}
             </TransactionListContainer>
         )
     }
     
 }
 
-export default TransactionList;
+const mapStateToProps = store => {
+    return {
+        store
+    }
+}
+
+export default connect(mapStateToProps)(TransactionList);

@@ -1,12 +1,26 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
+// const initialState = {
+//     loading: true,
+//     message: '',
+//     error  : null
+// }
 import paths from './data/routes_paths';
 
 import Header from './components/Header';
 import Transactions from './components/Transactions';
 import Settings from './components/Settings';
 import NotFound from './components/NotFound';
+
+// import api from './api'
+// api.Data.of( "TestTable" ).find()
+//     .then( function( obj ) {
+//         console.log( "object saved. objectId " + obj.objectId )
+//     } )
+//     .catch( function( error ) {
+//         console.log( "got error - " + error )
+//     })
 
 
 export default () => (
@@ -18,7 +32,6 @@ export default () => (
                 <Redirect exact from={'/'} to={paths.Transactions}/>
                 
                 <Route path={paths.Settings} component={Settings} />
-                <Redirect exact from={'/settings'} to={paths.Settings}/>
                 
                 <Route component={NotFound}/>
             </Switch>
