@@ -15,7 +15,7 @@ class Transactions extends Component {
         }
     }
     
-    componentDidMount() {
+    componentWillMount() {
         if (LS.checkData('categories')) {
             this.setState({ categories: LS.getData('categories') });
         }

@@ -13,15 +13,6 @@ import Transactions from './components/Transactions';
 import Settings from './components/Settings';
 import NotFound from './components/NotFound';
 
-// import api from './api'
-// api.Data.of( "TestTable" ).find()
-//     .then( function( obj ) {
-//         console.log( "object saved. objectId " + obj.objectId )
-//     } )
-//     .catch( function( error ) {
-//         console.log( "got error - " + error )
-//     })
-
 
 export default () => (
     <Router>
@@ -30,9 +21,9 @@ export default () => (
             <Switch>
                 <Route exact path={paths.Transactions} component={Transactions}/>
                 <Redirect exact from={'/'} to={paths.Transactions}/>
-                
+
                 <Route path={paths.Settings} component={Settings} />
-                
+
                 <Route component={NotFound}/>
             </Switch>
         </div>

@@ -17,14 +17,16 @@ class TransactionList extends PureComponent {
     };
     
     componentWillMount() {
-        this.props.dispatch({ type: 'GET_TRANSACTIONS' })
+        if (!this.props.transactions.length) {
+            this.props.dispatch({ type: 'GET_TRANSACTIONS' })
+        }
     }
     
     render() {
         const { categories, transactions } = this.props;
 
         let transactionsItems = null;
-        if (transactions.length > 0) {
+        if (transactions.length > 0 && categories.length > 0) {
             transactionsItems = transactions.map((item, idx) => {
                 const transactionItem = item;
                 const currentCategory = categories.filter(item => item.value === transactionItem.categoryName);
