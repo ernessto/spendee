@@ -16,16 +16,12 @@ class TransactionList extends PureComponent {
         categories: PropTypes.array
     };
     
-    constructor(props) {
-        super(props);
-        this.state = {
-        
-        }
+    componentWillMount() {
+        this.props.dispatch({ type: 'GET_TRANSACTIONS' })
     }
     
     render() {
-        const { transactions, categories } = this.props.store;
-        console.log(transactions);
+        const { categories, transactions } = this.props;
 
         let transactionsItems = null;
         if (transactions.length > 0) {
@@ -40,7 +36,7 @@ class TransactionList extends PureComponent {
                         transactionName={transactionItem.categoryName}
                         transactionImage={url}
                         transactionType={type}
-                        date={transactionItem.date}
+                        date={transactionItem.createdDate}
                         hashTag={transactionItem.hashTag}
                         amount={transactionItem.amount}
                     />
@@ -49,7 +45,7 @@ class TransactionList extends PureComponent {
         }
         
         return (
-            <TransactionListContainer style={!transactionsItems && {padding: '0'}}>
+            <TransactionListContainer style={{padding: '0'}}>
                 {transactionsItems ? <List>{transactionsItems}</List> : null}
             </TransactionListContainer>
         )
@@ -59,7 +55,7 @@ class TransactionList extends PureComponent {
 
 const mapStateToProps = store => {
     return {
-        store
+        transactions: store.transactions
     }
 }
 

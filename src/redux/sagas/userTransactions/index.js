@@ -8,10 +8,7 @@ function* postTransaction (action) {
             .then(data => data)
             .catch(e => e.message);
         console.log(postData);
-        const actualData = yield api.Data.of( "UserTransactions" ).find()
-            .then(data => data)
-            .catch(e => e.message);
-        yield put({ type: 'POST_TRANSACTION_SUCCESS', payload: actualData })
+        yield put({ type: 'POST_TRANSACTION_SUCCESS', payload: postData })
     } catch (e) {
         console.log(e.message)
     }
@@ -19,5 +16,5 @@ function* postTransaction (action) {
 
 export default function* postTransactionSaga () {
     console.log('post-saga is running');
-    yield takeEvery('POST_TRANSACTION', postTransaction)
+    yield takeEvery('POST_TRANSACTION', postTransaction);
 }
