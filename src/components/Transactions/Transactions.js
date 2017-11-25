@@ -10,17 +10,13 @@ class Transactions extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            categories: [],
-            transactions: []
+            categories: []
         }
     }
     
     componentWillMount() {
         if (LS.checkData('categories')) {
             this.setState({ categories: LS.getData('categories') });
-        }
-        if (LS.checkData('transactions')) {
-            this.setState({ transactions: LS.getData('transactions') });
         }
     }
     
@@ -40,7 +36,7 @@ class Transactions extends Component {
     };
     
     render() {
-        const { categories, transactions } = this.state;
+        const { categories } = this.state;
         return (
             <div>
                 {(categories && categories.length)
@@ -52,10 +48,7 @@ class Transactions extends Component {
                     :
                     null
                 }
-                <TransactionList
-                    transactions={transactions}
-                    categories={categories}
-                />
+                <TransactionList categories={categories}/>
             </div>
         );
     }
