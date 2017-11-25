@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import styles from './styles';
 
-const ListItemWrapper = styled.div`${ styles.listItemWrapper }`;
-const ListItem = styled.li`${ styles.listItem }`;
+const ListItemContainer = styled.li`${ styles.listItemWrapper }`;
+const ListItem = styled.div`${ styles.listItem }`;
 const HashTagView = styled.div`${ styles.hashView }`;
 const AmountView = styled.div`${ styles.amountView }`;
 
@@ -35,7 +35,7 @@ class TransactionItem extends PureComponent {
             amount
         } = this.props;
         return (
-            <ListItemWrapper>
+            <ListItemContainer>
                 {!this.state.isOpenEditModal
                     ?
                     <ListItem>
@@ -55,7 +55,7 @@ class TransactionItem extends PureComponent {
                     :
                     null
                 }
-            </ListItemWrapper>
+            </ListItemContainer>
         )
     }
 }
